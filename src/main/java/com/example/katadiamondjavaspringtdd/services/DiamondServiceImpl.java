@@ -3,6 +3,7 @@ package com.example.katadiamondjavaspringtdd.services;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 import org.springframework.stereotype.Service;
@@ -35,8 +36,9 @@ public class DiamondServiceImpl implements DiamondService {
 		final char letter = DiamondServiceImpl.LETTERS.charAt(position - 1);
 
 		final StringBuilder lineBuilder = new StringBuilder(emptyLine);
-		final int initialLetterPosition = (indexOfLetter - position - 1) + 1;
-		final int finalLetterPosition = (indexOfLetter + position) - 1 - 1;
+		final int offset = 1;
+		final int initialLetterPosition = (indexOfLetter - (position - offset)) + 1;
+		final int finalLetterPosition = (indexOfLetter + (position - offset)) - 1;
 		lineBuilder.setCharAt(initialLetterPosition, letter);
 		lineBuilder.setCharAt(finalLetterPosition, letter);
 		return lineBuilder.toString();
@@ -44,7 +46,8 @@ public class DiamondServiceImpl implements DiamondService {
 	}
 
 	public List<String> createTop(final int indexOfLetter, final String emptyLine) {
-		// TODO Auto-generated method stub
-		return null;
+		final int offset = 1;
+		return IntStream.range(1, indexOfLetter + offset)
+				.mapToObj(position -> this.createLine(indexOfLetter, emptyLine, position)).collect(Collectors.toList());
 	}
 }
