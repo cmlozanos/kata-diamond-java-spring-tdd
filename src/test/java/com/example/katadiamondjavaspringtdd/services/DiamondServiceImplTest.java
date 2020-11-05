@@ -8,10 +8,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import com.example.katadiamondjavaspringtdd.web.controller.Diamond;
 
 @SpringBootTest
-public class DiamondServiceTest {
+public class DiamondServiceImplTest {
 
 	@Autowired
-	DiamondService service;
+	DiamondServiceImpl service;
 
 	@Test
 	public void givenLetterBWhenCreateDiamondThenShouldReturnDiamondOfB() {
@@ -25,8 +25,8 @@ public class DiamondServiceTest {
 		Assertions.assertNotNull(diamond.getRows());
 		Assertions.assertEquals(3, diamond.getRows().size());
 		Assertions.assertEquals(" A ", diamond.getRows().get(0));
-		Assertions.assertEquals("B B", diamond.getRows().get(0));
-		Assertions.assertEquals(" A ", diamond.getRows().get(0));
+		Assertions.assertEquals("B B", diamond.getRows().get(1));
+		Assertions.assertEquals(" A ", diamond.getRows().get(2));
 	}
 
 }
