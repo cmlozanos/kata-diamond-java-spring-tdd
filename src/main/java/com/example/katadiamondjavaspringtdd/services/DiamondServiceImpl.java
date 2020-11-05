@@ -1,6 +1,8 @@
 package com.example.katadiamondjavaspringtdd.services;
 
 import java.util.Arrays;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.springframework.stereotype.Service;
 
@@ -24,7 +26,7 @@ public class DiamondServiceImpl implements DiamondService {
 	}
 
 	public String createEmptyLine(final int index) {
-		// TODO Auto-generated method stub
-		return null;
+		final int times = (index * 2) - 1;
+		return Stream.generate(() -> " ").limit(times).collect(Collectors.joining());
 	}
 }

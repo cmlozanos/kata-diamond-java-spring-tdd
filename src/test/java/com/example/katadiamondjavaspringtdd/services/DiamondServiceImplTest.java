@@ -56,14 +56,25 @@ public class DiamondServiceImplTest {
 	}
 
 	@Test
-	public void givenIndexWhenCreateEmptyLineThenShouldReturnStringWithThisSizeAndEmpty() {
+	public void givenIndexOf2WhenCreateEmptyLineThenShouldReturnStringWithThisSizeAndEmpty() {
 		// given
 		final int index = 2;
 		// when
 		final String emptyLine = this.service.createEmptyLine(index);
 
 		// then
-		Assertions.assertEquals("  ", emptyLine);
+		Assertions.assertEquals("   ", emptyLine);
+	}
+
+	@Test
+	public void givenIndexOf3WhenCreateEmptyLineThenShouldReturnStringWithThisSizeAndEmpty() {
+		// given
+		final int index = 3;
+		// when
+		final String emptyLine = this.service.createEmptyLine(index);
+
+		// then
+		Assertions.assertEquals("     ", emptyLine);
 	}
 
 }
