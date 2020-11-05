@@ -16,4 +16,9 @@ public class DiamondServiceImpl implements DiamondService {
 		}
 		return Diamond.builder().rows(Arrays.asList(" A ", "B B", " A ")).build();
 	}
+
+	public int indexOfLetter(final String letter) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }
