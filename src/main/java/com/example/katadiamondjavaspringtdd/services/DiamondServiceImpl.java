@@ -1,7 +1,6 @@
 package com.example.katadiamondjavaspringtdd.services;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -19,18 +18,20 @@ public class DiamondServiceImpl implements DiamondService {
 
 	@Override
 	public Diamond of(final String letter) {
-		if ("A".equalsIgnoreCase(letter)) {
-			return Diamond.builder().rows(Arrays.asList(" A ")).build();
-		}
-		return Diamond.builder().rows(Arrays.asList(" A ", "B B", " A ")).build();
+		final int indexOfLetter = this.indexOfLetter(letter);
+		final String emptyLine = this.createEmptyLine(indexOfLetter);
+		final List<String> topRows = this.createTop(indexOfLetter, emptyLine);
+		final List<String> bottomRows = this.createBottom(topRows);
+		final List<String> rows = Stream.concat(topRows.stream(), bottomRows.stream()).collect(Collectors.toList());
+		return Diamond.builder().rows(rows).build();
 	}
 
 	public int indexOfLetter(final String letter) {
 		return DiamondServiceImpl.LETTERS.indexOf(letter) + 1;
 	}
 
-	public String createEmptyLine(final int index) {
-		final int times = (index * 2) - 1;
+	public String createEmptyLine(final int indexOfLetter) {
+		final int times = (indexOfLetter * 2) - 1;
 		return Stream.generate(() -> " ").limit(times).collect(Collectors.joining());
 	}
 
