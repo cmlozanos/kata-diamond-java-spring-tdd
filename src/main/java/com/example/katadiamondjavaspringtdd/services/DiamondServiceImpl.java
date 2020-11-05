@@ -22,4 +22,9 @@ public class DiamondServiceImpl implements DiamondService {
 	public int indexOfLetter(final String letter) {
 		return DiamondServiceImpl.LETTERS.indexOf(letter) + 1;
 	}
+
+	public String createEmptyLine(final int index) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
