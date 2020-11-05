@@ -1,5 +1,7 @@
 package com.example.katadiamondjavaspringtdd.services;
 
+import java.util.List;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -89,5 +91,21 @@ public class DiamondServiceImplTest {
 
 		// then
 		Assertions.assertEquals("B B", row);
+	}
+
+	@Test
+	public void givenIndexAndEmptyLineWhenCreateTopThenShouldReturnTopLines() {
+		// given
+		final int indexOfLetter = 2;
+		final String emptyLine = "   ";
+
+		// when
+		final List<String> rows = this.service.createTop(indexOfLetter, emptyLine);
+
+		// then
+		Assertions.assertEquals(2, rows.size());
+		Assertions.assertEquals(" A ", rows.get(0));
+		Assertions.assertEquals("B B", rows.get(1));
+
 	}
 }

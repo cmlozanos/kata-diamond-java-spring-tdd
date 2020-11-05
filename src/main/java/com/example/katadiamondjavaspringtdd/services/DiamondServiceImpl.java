@@ -1,6 +1,7 @@
 package com.example.katadiamondjavaspringtdd.services;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -40,5 +41,10 @@ public class DiamondServiceImpl implements DiamondService {
 		lineBuilder.setCharAt(finalLetterPosition, letter);
 		return lineBuilder.toString();
 
+	}
+
+	public List<String> createTop(final int indexOfLetter, final String emptyLine) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
