@@ -1,5 +1,6 @@
 package com.example.katadiamondjavaspringtdd.services;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.junit.jupiter.api.Assertions;
@@ -106,6 +107,20 @@ public class DiamondServiceImplTest {
 		Assertions.assertEquals(2, rows.size());
 		Assertions.assertEquals(" A ", rows.get(0));
 		Assertions.assertEquals("B B", rows.get(1));
+
+	}
+
+	@Test
+	public void givenTopLinesWhenCreateBottomThenShouldReturnBottomLines() {
+		// given
+		final List<String> rows = Arrays.asList(" A ", "B B", " A ");
+
+		// when
+		final List<String> bottomRows = this.service.createBottom(rows);
+
+		// then
+		Assertions.assertEquals(1, bottomRows.size());
+		Assertions.assertEquals(" A ", rows.get(0));
 
 	}
 }

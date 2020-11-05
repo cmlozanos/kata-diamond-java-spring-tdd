@@ -50,4 +50,9 @@ public class DiamondServiceImpl implements DiamondService {
 		return IntStream.range(1, indexOfLetter + offset)
 				.mapToObj(position -> this.createLine(indexOfLetter, emptyLine, position)).collect(Collectors.toList());
 	}
+
+	public List<String> createBottom(final List<String> rows) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
