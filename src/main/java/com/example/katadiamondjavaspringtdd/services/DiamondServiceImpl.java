@@ -29,4 +29,9 @@ public class DiamondServiceImpl implements DiamondService {
 		final int times = (index * 2) - 1;
 		return Stream.generate(() -> " ").limit(times).collect(Collectors.joining());
 	}
+
+	public String createLine(final int index, final String emptyLine, final int position) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
