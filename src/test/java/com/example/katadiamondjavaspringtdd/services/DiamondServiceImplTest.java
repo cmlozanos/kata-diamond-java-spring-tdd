@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.mockito.ArgumentMatchers;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -121,5 +123,21 @@ public class DiamondServiceImplTest {
 		// then
 		Assertions.assertEquals(1, bottomRows.size());
 		Assertions.assertEquals(" A ", rows.get(0));
+	}
+
+	@Test
+	public void givenLetterWhenCreateDiamondThenShouldInvokeNextMethods() {
+		// given
+		final DiamondServiceImpl mockService = Mockito.spy(DiamondServiceImpl.class);
+
+		// when
+		mockService.of("B");
+
+		// then
+		Mockito.verify(mockService, Mockito.times(1)).indexOfLetter("B");
+		Mockito.verify(mockService, Mockito.times(1)).createEmptyLine(ArgumentMatchers.anyInt());
+		Mockito.verify(mockService, Mockito.times(1)).createTop(ArgumentMatchers.anyInt(),
+				ArgumentMatchers.anyString());
+		Mockito.verify(mockService, Mockito.times(1)).createBottom(ArgumentMatchers.anyList());
 	}
 }
