@@ -1,7 +1,5 @@
 package com.example.katadiamondjavaspringtdd.services;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -82,14 +80,14 @@ public class DiamondServiceImplTest {
 	@Test
 	public void givenIndexAndEmptyLineAndPositionWhenCreateLineThenShouldReturnLine() {
 		// given
-		final int index = 2;
+		final int indexOfLetter = 2;
 		final String emptyLine = "   ";
 		final int position = 2;
 
 		// when
-		final String row = this.service.createLine(index, emptyLine, position);
+		final String row = this.service.createLine(indexOfLetter, emptyLine, position);
 
 		// then
-		assertEquals("B B", row);
+		Assertions.assertEquals("B B", row);
 	}
 }

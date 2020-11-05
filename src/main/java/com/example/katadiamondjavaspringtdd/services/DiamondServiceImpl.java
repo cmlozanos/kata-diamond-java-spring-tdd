@@ -30,8 +30,15 @@ public class DiamondServiceImpl implements DiamondService {
 		return Stream.generate(() -> " ").limit(times).collect(Collectors.joining());
 	}
 
-	public String createLine(final int index, final String emptyLine, final int position) {
-		// TODO Auto-generated method stub
-		return null;
+	public String createLine(final int indexOfLetter, final String emptyLine, final int position) {
+		final char letter = DiamondServiceImpl.LETTERS.charAt(position - 1);
+
+		final StringBuilder lineBuilder = new StringBuilder(emptyLine);
+		final int initialLetterPosition = (indexOfLetter - position - 1) + 1;
+		final int finalLetterPosition = (indexOfLetter + position) - 1 - 1;
+		lineBuilder.setCharAt(initialLetterPosition, letter);
+		lineBuilder.setCharAt(finalLetterPosition, letter);
+		return lineBuilder.toString();
+
 	}
 }
