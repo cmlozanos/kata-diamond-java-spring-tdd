@@ -26,8 +26,8 @@ public class DiamondControllerTest {
 				.when().get("/api/v1/diamonds")
 
 				// then
-				.then().statusCode(HttpStatus.OK.value()).contentType(ContentType.JSON)
-				.body("data", CoreMatchers.hasItems(3));
+				.then().log().all().statusCode(HttpStatus.OK.value()).contentType(ContentType.JSON)
+				.body("rows", CoreMatchers.hasItems(" A ", "B B", " A "));
 
 	}
 }
