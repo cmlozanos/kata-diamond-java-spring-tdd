@@ -1,26 +1,23 @@
 package com.example.katadiamondjavaspringtdd.web.controller;
 
-import java.util.Arrays;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.katadiamondjavaspringtdd.services.DiamondService;
+
 @RestController
 @RequestMapping("/api/v1/diamonds")
 public class DiamondController {
 
+	@Autowired
+	DiamondService service;
+
 	@GetMapping
 	public ResponseEntity<Diamond> of(@RequestParam("letter") final String letter) {
-		final Diamond diamond;
-		if ("A".equalsIgnoreCase(letter)) {
-			diamond = Diamond.builder().rows(Arrays.asList(" A ")).build();
-		} else {
-			diamond = Diamond.builder().rows(Arrays.asList(" A ", "B B", " A ")).build();
-		}
-
-		return ResponseEntity.ok().body(diamond);
+		return ResponseEntity.ok().body(this.service.of(letter));
 	}
 }
