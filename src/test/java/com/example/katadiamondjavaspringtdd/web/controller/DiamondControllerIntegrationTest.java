@@ -11,7 +11,7 @@ import io.restassured.http.ContentType;
 import io.restassured.module.mockmvc.RestAssuredMockMvc;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class DiamondControllerTest {
+public class DiamondControllerIntegrationTest {
 
 	@Autowired
 	DiamondController controller;
