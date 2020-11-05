@@ -1,6 +1,8 @@
 package com.example.katadiamondjavaspringtdd.services;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -52,7 +54,8 @@ public class DiamondServiceImpl implements DiamondService {
 	}
 
 	public List<String> createBottom(final List<String> rows) {
-		// TODO Auto-generated method stub
-		return null;
+		final List<String> bottomRows = new ArrayList<>(rows.subList(0, rows.size() - 1));
+		Collections.reverse(bottomRows);
+		return bottomRows;
 	}
 }

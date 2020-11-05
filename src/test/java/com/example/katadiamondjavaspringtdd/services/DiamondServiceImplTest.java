@@ -113,7 +113,7 @@ public class DiamondServiceImplTest {
 	@Test
 	public void givenTopLinesWhenCreateBottomThenShouldReturnBottomLines() {
 		// given
-		final List<String> rows = Arrays.asList(" A ", "B B", " A ");
+		final List<String> rows = Arrays.asList(" A ", "B B");
 
 		// when
 		final List<String> bottomRows = this.service.createBottom(rows);
@@ -121,6 +121,5 @@ public class DiamondServiceImplTest {
 		// then
 		Assertions.assertEquals(1, bottomRows.size());
 		Assertions.assertEquals(" A ", rows.get(0));
-
 	}
 }
