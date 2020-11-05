@@ -39,8 +39,8 @@ public class DiamondServiceImpl implements DiamondService {
 
 		final StringBuilder lineBuilder = new StringBuilder(emptyLine);
 		final int offset = 1;
-		final int initialLetterPosition = (indexOfLetter - (position - offset)) + 1;
-		final int finalLetterPosition = (indexOfLetter + (position - offset)) - 1;
+		final int initialLetterPosition = (indexOfLetter - position - offset) + 1;
+		final int finalLetterPosition = ((indexOfLetter + position) - offset) - 1;
 		lineBuilder.setCharAt(initialLetterPosition, letter);
 		lineBuilder.setCharAt(finalLetterPosition, letter);
 		return lineBuilder.toString();
