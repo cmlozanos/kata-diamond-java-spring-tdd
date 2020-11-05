@@ -29,4 +29,18 @@ public class DiamondServiceImplTest {
 		Assertions.assertEquals(" A ", diamond.getRows().get(2));
 	}
 
+	@Test
+	public void givenLetterAWhenCreateDiamondThenShouldReturnDiamondOfA() {
+		// given
+
+		// when
+		final Diamond diamond = this.service.of("A");
+
+		// then
+		Assertions.assertNotNull(diamond);
+		Assertions.assertNotNull(diamond.getRows());
+		Assertions.assertEquals(1, diamond.getRows().size());
+		Assertions.assertEquals(" A ", diamond.getRows().get(0));
+	}
+
 }
