@@ -45,7 +45,7 @@ public class DiamondServiceImplTest {
 		Assertions.assertNotNull(diamond);
 		Assertions.assertNotNull(diamond.getRows());
 		Assertions.assertEquals(1, diamond.getRows().size());
-		Assertions.assertEquals(" A ", diamond.getRows().get(0));
+		Assertions.assertEquals("A", diamond.getRows().get(0));
 	}
 
 	@Test

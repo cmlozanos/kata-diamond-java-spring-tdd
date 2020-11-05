@@ -44,7 +44,7 @@ public class DiamondControllerIntegrationTest {
 
 				// then
 				.then().log().all().statusCode(HttpStatus.OK.value()).contentType(ContentType.JSON)
-				.body("rows", Matchers.hasSize(1)).body("rows[0]", CoreMatchers.equalTo(" A "));
+				.body("rows", Matchers.hasSize(1)).body("rows[0]", CoreMatchers.equalTo("A"));
 
 	}
 }
