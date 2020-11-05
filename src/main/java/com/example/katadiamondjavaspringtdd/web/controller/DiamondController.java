@@ -14,7 +14,13 @@ public class DiamondController {
 
 	@GetMapping
 	public ResponseEntity<Diamond> of(@RequestParam("letter") final String letter) {
-		final Diamond diamond = Diamond.builder().rows(Arrays.asList(" A ", "B B", " A ")).build();
+		final Diamond diamond;
+		if ("A".equalsIgnoreCase(letter)) {
+			diamond = Diamond.builder().rows(Arrays.asList(" A ")).build();
+		} else {
+			diamond = Diamond.builder().rows(Arrays.asList(" A ", "B B", " A ")).build();
+		}
+
 		return ResponseEntity.ok().body(diamond);
 	}
 }
